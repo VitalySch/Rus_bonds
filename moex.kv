@@ -1,0 +1,69 @@
+<ContentNavigationDrawer>:
+    MDScrollView:
+
+        MDList:
+            MDNavigationDrawerHeader:
+                title: "Облигации"
+                font_name: 'beer.ttf'
+                title_color: "#4a4939"
+                text: "Header text"
+                spacing: "4dp"
+                padding: "12dp", 0, 0, "56dp"
+
+            OneLineListItem:
+                valign: 'center'
+                text: "Облигации федерального займа"
+                font_size: 25
+                font_name: 'beer.ttf'
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "ofz_scr"
+
+            OneLineListItem:
+                valign: 'center'
+                text: "Субфедеральные облигации"
+                font_size: 25
+                font_name: 'beer.ttf'
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "sub_scr"
+
+
+MDScreen:
+    MDTopAppBar:
+        pos_hint: {"top": 1}
+        elevation: 5
+        title: "Облигации федерального займа"
+        anchor_title: "center"
+        left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+
+
+
+    MDNavigationLayout:
+
+        MDScreenManager:
+            id: screen_manager
+
+            Screen_ofz:
+                name: "ofz_scr"
+
+
+            Screen_sub:
+                name: "sub_scr"
+                MDTopAppBar:
+                    pos_hint: {"top": 1}
+                    elevation: 5
+                    title: "Субфедеральные облигации"
+                    anchor_title: "center"
+                    left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+
+
+        MDNavigationDrawer:
+            id: nav_drawer
+            radius: (0, 20, 20, 0)
+
+
+            ContentNavigationDrawer:
+                screen_manager: screen_manager
+                nav_drawer: nav_drawer
+
