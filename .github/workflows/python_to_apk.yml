@@ -1,7 +1,5 @@
-name: CI
-on:
-  push:
-    branches: [ main ]
+name: python_to_apk
+on: [workflow_dispatch]
 
 jobs:
   build:
