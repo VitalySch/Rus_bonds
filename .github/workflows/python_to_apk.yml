@@ -14,8 +14,7 @@ jobs:
       - name: Build with Buildozer
         uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer
-        with:
-          workdir: test_app
+        with:         
           buildozer_version: stable
 
       - name: Upload artifacts
