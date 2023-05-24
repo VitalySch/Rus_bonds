@@ -49,7 +49,7 @@ requirements = python3,kivy==2.0.0
 #icon.filename = %(source.dir)s/data/logo/logo512min.png
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
-orientation = all
+# orientation = all
 
 
 
